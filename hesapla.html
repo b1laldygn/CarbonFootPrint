@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karbon Ayak İzi Hesapla</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>Karbon Ayak İzi Hesaplama</h1>
+        <nav>
+            <a href="index.html">Ana Sayfa</a>
+        </nav>
+    </header>
+    <main>
+        <form id="multiStepForm">
+            <div class="form-container">
+                <div class="step active">
+                    <label>1. Günlük araba kullanımı (km):</label>
+                    <input type="number" id="carKm" required>
+                </div>
+                <div class="step">
+                    <label>2. Yılda kaç kilometre uçakla seyahat ediyorsunuz?</label>
+                    <input type="number" id="flight" required>
+                </div>
+                <div class="step">
+                    <label>3. Her hafta ne kadar et tüketiyorsunuz? (kg cinsinden)</label>
+                    <input type="number" id="meat" required>
+                </div>
+                <div class="step">
+                    <label>4. Evinizde geri dönüşüm yapıyor musunuz? (Evet=1, Hayır=0)</label>
+                    <input type="number" id="recycle" min="0" max="1" required>
+                </div>
+                <div class="step">
+                    <label>5. Kullandığınız enerjinin ne kadar kısmı yenilenebilir? (Yüzde olarak)</label>
+                    <input type="number" id="renewable" min="0" max="100" required>
+                </div>
+                <div class="step">
+                    <label>6. Evde kaç kişi yaşıyor?</label>
+                    <input type="number" id="people" required>
+                </div>
+                <div class="step">
+                    <label>7. Her hafta toplu taşıma kullanıyor musunuz? (Kaç kilometre?)</label>
+                    <input type="number" id="publicTransport" required>
+                </div>
+                <div class="step">
+                    <label>8. Evinizde su tasarrufu yapıyor musunuz? (Evet=1, Hayır=0)</label>
+                    <input type="number" id="waterSaving" min="0" max="1">
+                </div>
+                <div class="step">
+                    <label>9. Doğa dostu ürünler kullanıyor musunuz? (Evet=1, Hayır=0)</label>
+                    <input type="number" id="ecoProducts" min="0" max="1">
+                </div>
+                <div class="step">
+                    <label>10. Enerji tasarrufu yapıyor musunuz? (Evet=1, Hayır=0)</label>
+                    <input type="number" id="energySaving" min="0" max="1">
+                </div>
+                <div class="navigation">
+                    <button type="button" id="prevBtn">Geri</button>
+                    <button type="button" id="nextBtn">İleri</button>
+                </div>
+            </div>
+        </form>
+        <div id="result"></div>
+    </main>
+    <footer>
+        <p>&copy; 2025 Yeşil Bir Adım</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
