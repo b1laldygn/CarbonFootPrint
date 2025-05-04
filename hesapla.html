@@ -17,56 +17,78 @@
     <main>
         <form id="multiStepForm">
             <div class="form-container">
-                <div class="step active">
+                <!--<div class="step active">
                     <label>1. Günlük araba kullanımı (km):</label>
                     <input type="number" id="carKm" required>
-                </div>
-                <div class="step">
+                </div>-->
+                <!--<div class="step">
                     <label>2. Yılda kaç kilometre uçakla seyahat ediyorsunuz?</label>
                     <input type="number" id="flight" required>
-                </div>
+                </div>-->
                 <div class="step">
-                    <label>3. Her hafta ne kadar et tüketiyorsunuz? (kg cinsinden)</label>
+                    <label>1. Her hafta ne kadar et tüketiyorsunuz? (kg cinsinden)</label>
                     <input type="number" id="meat" required>
                 </div>
                 <div class="step">
-                    <label>4. Evinizde geri dönüşüm yapıyor musunuz? (Evet=1, Hayır=0)</label>
+                    <label>2. Evinizde geri dönüşüm yapıyor musunuz? (Evet=1, Hayır=0)</label>
                     <input type="number" id="recycle" min="0" max="1" required>
                 </div>
                 <div class="step">
-                    <label>5. Kullandığınız enerjinin ne kadar kısmı yenilenebilir? (Yüzde olarak)</label>
+                    <label>3. Kullandığınız enerjinin ne kadar kısmı yenilenebilir? (Yüzde olarak)</label>
                     <input type="number" id="renewable" min="0" max="100" required>
                 </div>
                 <div class="step">
-                    <label>6. Evde kaç kişi yaşıyor?</label>
+                    <label>4. Evde kaç kişi yaşıyor?</label>
                     <input type="number" id="people" required>
                 </div>
                 <div class="step">
-                    <label>7. Her hafta toplu taşıma kullanıyor musunuz? (Kaç kilometre?)</label>
+                    <label>5. Her hafta toplu taşıma kullanıyor musunuz? (Kaç kilometre?)</label>
                     <input type="number" id="publicTransport" required>
                 </div>
-                <div class="step">
+                <!--<div class="step">
                     <label>8. Evinizde su tasarrufu yapıyor musunuz? (Evet=1, Hayır=0)</label>
                     <input type="number" id="waterSaving" min="0" max="1">
-                </div>
-                <div class="step">
+                </div>-->
+                <!--<div class="step">
                     <label>9. Doğa dostu ürünler kullanıyor musunuz? (Evet=1, Hayır=0)</label>
                     <input type="number" id="ecoProducts" min="0" max="1">
+                </div>-->
+                <!--<div class="step">
+                    <label>8. Enerji tasarrufu yapıyor musunuz? (Evet=1, Hayır=0)</label>
+                    <input type="number" id="energySaving" min="0" max="1">
+                </div>-->
+                <div class="step">
+                    <label>6. Haftada kaç kez bisiklet kullanıyorsunuz?</label>
+                    <input type="number" id="bikeUsage" required>
                 </div>
                 <div class="step">
-                    <label>10. Enerji tasarrufu yapıyor musunuz? (Evet=1, Hayır=0)</label>
-                    <input type="number" id="energySaving" min="0" max="1">
+                    <label>7. Haftada kaç kez doğal gıda tüketiyorsunuz?</label>
+                    <input type="number" id="naturalFood" required>
+                </div>
+                <div class="step">
+                    <label>8. Haftada kaç kez su şişesi kullanıyorsunuz?</label>
+                    <input type="number" id="plasticBottles" required>
+                </div>
+                <div class="step">
+                    <label>9. Odadan çıktığında ışıklarını kapatır mısın? (Evet=1, Hayır=0)</label>
+                    <input type="number" id="lightsOff" min="0" max="1" required>
+                </div>
+                <div class="step">
+                    <label>10. Evde bahçede bitki dikmeye yardım eder misin? (Evet=1, Hayır=0)</label>
+                    <input type="number" id="gardening" min="0" max="1" required>
                 </div>
                 <div class="navigation">
                     <button type="button" id="prevBtn">Geri</button>
                     <button type="button" id="nextBtn">İleri</button>
                 </div>
+                
             </div>
         </form>
         <div id="result"></div>
     </main>
     <footer>
-        <p>&copy; 2025 Yeşil Bir Adım</p>
+        <p>&copy; 2025 Yeşil Bir Adım -- İletişim : https://cezeri.meb.k12.tr/ --  (312) 283 1061 --  </p>
+        <p>Meryem Şahin tarafından tasarlandı Bilal Efe Doyğun tarafından kodlandı</p>
     </footer>
     <script src="script.js"></script>
 </body>
