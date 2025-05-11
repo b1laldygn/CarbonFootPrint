@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karbon Ayak İzi Hesapla</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        .option {
+            cursor: pointer;
+            padding: 0.5rem;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            margin: 0.5rem 0;
+            text-align: center;
+            transition: background-color 0.3s ease;
+        }
+        .option:hover {
+            background-color: #e0e0e0;
+        }
+        .selected {
+            background-color: #2ecc71;
+            color: white;
+        }
+
+        .question-container {
+            display: flex;
+            flex-direction: row; /* Display side by side */
+            align-items: center; /* Vertically align items */
+            justify-content: space-between; /* Add space between label and image */
+        }
+
+        .question-container label {
+            flex: 2; /* Take up 2/3 of the space */
+            margin-right: 1rem; /* Add some spacing between label and image */
+        }
+
+        .question-container img {
+            flex: 1; /* Take up 1/3 of the space */
+            max-width: 100%; /* Ensure image doesn't exceed its container */
+            height: auto; /* Maintain aspect ratio */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Karbon Ayak İzi Hesaplama</h1>
+        <nav>
+            <a href="index.html">Ana Sayfa</a>
+        </nav>
+    </header>
+    <main>
+        <form id="multiStepForm">
+            <div class="form-container">
+                <div class="step">
+                    <label>1. Haftada ne sıklıkla kaç porsiyon et tüketiyorsunuz? (kg cinsinden)</label>
+                    <div class="option" data-value="0">A. Hiç</div>
+                    <div class="option" data-value="1">B. 1 kez</div>
+                    <div class="option" data-value="2">C. 2 kez</div>
+                    <div class="option" data-value="3">D. 3 kez ve daha fazla</div>
+                    <img src="./assets/1.png" alt="Soru 1 Resmi">
+                </div>
+                <div class="step">
+                    <label>2. Geri dönüşüm yapıyor musunuz?</label>
+                    <div class="option" data-value="1">A. Evet</div>
+                    <div class="option" data-value="0">B. Hayır</div>
+                </div>
+                <div class="step">
+                    <label>3. Enerji üretiminde yenilenebilir enerji teknolojilerini kullanıyor musunuz?</label>
+                    <div class="option" data-value="1">A. Evet</div>
+                    <div class="option" data-value="0">B. Hayır</div>
+                </div>
+                <div class="step">
+                    <label>4. Evde kaç kişi yaşıyor?</label>
+                    <div class="option" data-value="1">A. 1-2 kişi</div>
+                    <div class="option" data-value="2">B. 3-4 kişi</div>
+                    <div class="option" data-value="3">C. 5-6 kişi</div>
+                    <div class="option" data-value="4">D. 7 ve üzeri</div>
+                </div>
+                <div class="step">
+                    <label>5. Günlük ulaşımda hangi araçları tercih ediyorsunuz (hesaplama yapılacak)</label>
+                    <div class="option" data-value="0">Bisiklet</div>
+                    <div class="option" data-value="1">Toplu taşıma</div>
+                    <div class="option" data-value="2">Kişisel araç</div>
+                </div>
+                <div class="step">
+                    <div class="question-container">
+                        <label>6. Günlük beslenme alışkanlığınız nasıldır (Hesaplanacak)?</label>
+                    </div>
+                    <div class="option" data-value="0">A. Doğal gıda (Ev yemeği)</div>
+                    <div class="option" data-value="1">B. Paketlenmiş (Hazır gıda)</div>
+                    <div class="option" data-value="2">C. Fast Food</div>
+                    <img src="./assets/6.png" alt="Soru 6 Resmi">
+                </div>
+                <div class="step">
+                    <div class="question-container">
+                        <label>7. Su tüketimini nasıl sağlarsınız (hesaplanacak)?</label>
+                    </div>
+                    <div class="option" data-value="0">A. Kendi mataramı/suluk kullanırım</div>
+                    <div class="option" data-value="1">B. Tek kullanımlık şişe kullanırım</div>
+                    <img src="./assets/7.png" alt="Soru 7 Resmi">
+                </div>
+                <div class="step">
+                    <label>8. Odadan çıktığında ışıklarını kapatır mısın? (Evet=1, Hayır=0)</label>
+                    <div class="option" data-value="1">A. Evet</div>
+                    <div class="option" data-value="0">B. Hayır</div>
+                </div>
+                <div class="step">
+                    <div class="question-container">
+                        <label>9. Ağaç dikme etkinliklerine katılır mısın?</label>
+                    </div>
+                    <div class="option" data-value="1">A. Evet</div>
+                    <div class="option" data-value="0">B. Hayır</div>
+                    <img src="./assets/9.png" alt="Soru 9 Resmi">
+                </div>
+                <div class="step">
+                    <div class="question-container">
+                         <label>10. Ayda kaç kargo alırsınız?</label>
+                    </div>
+                    <div class="option" data-value="0">A. Hiç</div>
+                    <div class="option" data-value="1">B. 1-2 kez</div>
+                    <div class="option" data-value="2">C. 3-4 kez</div>
+                    <div class="option" data-value="3">D. 5 ve üzeri</div>
+                    <img src="./assets/10.png" alt="Soru 10 Resmi">
+                </div>
+                <div class="navigation">
+                    <button type="button" id="prevBtn">Geri</button>
+                    <button type="button" id="nextBtn">İleri</button>
+                </div>
+            </div>
+        </form>
+        <div id="result"></div>
+    </main>
+    <footer>
+        <p>&copy; 2025 Yeşil Bir Adım -- İletişim : https://cezeri.meb.k12.tr/ --  (312) 283 1061 --  </p>
+        <p>Meryem Şahin tarafından tasarlandı Bilal Efe Doyğun tarafından kodlandı</p>
+    </footer>
+    <script src="scripts.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+    resultContainer.style.display = "none";
+    showStep(currentStep);
+
+    const options = document.querySelectorAll('.option');
+    options.forEach(option => {
+        option.addEventListener('click', function() {
+            const step = option.closest('.step');
+            step.querySelectorAll('.option').forEach(opt => opt.classList.remove('selected'));
+            option.classList.add('selected');
+        });
+    });
+
+    // ENTER tuşuyla geçiş
+    document.getElementById('multiStepForm').addEventListener('keypress', function(event) {
+        if (event.key === 'Enter') {
+            event.preventDefault(); // Formun varsayılan davranışını engelle
+            if (event.target.classList.contains('option')) {
+                nextStep();
+            } else {
+                const selectedOption = document.querySelector('.step.active .selected');
+                if (selectedOption) {
+                    nextStep();
+                }
+            }
+        }
+    });
+});
+    </script>
+</body>
+</html>

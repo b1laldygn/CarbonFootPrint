@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sonuç</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Karbon Ayak İzi Sonuç</h1>
+        <nav>
+            <a href="index.html">Ana Sayfa</a>
+            <a href="welcome.html">Tekrar Hesapla</a>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <h2>Tebrikler!</h2>
+            <p>Adınız: <strong id="userName"></strong></p>
+            <p>Toplam Karbon Ayak İzinizi: <strong id="carbonFootprint"></strong> kg CO2</p>
+            <button id="downloadImage" class="button">Görseli İndir</button>
+        </section>
+        <canvas id="resultCanvas" class="hidden"></canvas>
+    </main>
+    <footer>
+        <p>&copy; 2025 Yeşil Bir Adım -- İletişim : https://cezeri.meb.k12.tr/ --  (312) 283 1061 --  </p>
+        <p>Meryem Şahin tarafından tasarlandı Bilal Efe Doyğun tarafından kodlandı</p>
+    </footer>
+    <script>
+        // Kullanıcı adı ve karbon ayak izi bilgilerini al
+        const userName = sessionStorage.getItem('userName') || 'Bilinmiyor';
+        const carbonFootprint = sessionStorage.getItem('carbonFootprint') || '0';
+    
+        // HTML'de kullanıcı adı ve karbon ayak izi bilgilerini göster
+        document.getElementById('userName').textContent = userName;
+        document.getElementById('carbonFootprint').textContent = carbonFootprint;
+    
+        // Canvas oluştur ve bilgileri yazdır
+        const canvas = document.getElementById('resultCanvas');
+        const ctx = canvas.getContext('2d');
+        const downloadButton = document.getElementById('downloadImage');
+    
+        // Arkaplan görseli
+        const background = new Image();
+        background.src = 'background.png'; // Background görsel yolu
+        background.onload = () => {
+            // Canvas boyutlarını ayarla
+            canvas.width = background.width;
+            canvas.height = background.height;
+    
+            // Arkaplanı çiz
+            ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
+    
+            // Yazı ayarları
+            ctx.font = 'bold 40px Inter';
+            ctx.fillStyle = '#2c3e50';
+            ctx.textAlign = 'left'; // Yazıyı sola hizala
+            const textX = canvas.width * 0.33; // Daha sola (ayak izine doğru) alındı
+            const nameY = canvas.height * 0.28;
+            const carbonY = nameY + 50;
+            const infoY = carbonY + 70;
+            ctx.font = 'bold 38px Inter';
+            ctx.fillStyle = '#2c3e50';
+            ctx.textAlign = 'left';
+            ctx.fillText(`Adınız: ${userName}`, textX, nameY);
+            ctx.fillText(`Karbon Ayak İziniz: ${carbonFootprint} kg CO2`, textX, carbonY);
+            ctx.font = '22px Inter';
+            ctx.fillText('Sürdürülebilir bir gelecek için', textX, infoY);
+            ctx.fillText('adım attığınız için teşekkür ederiz!', textX, infoY + 30);
+        };
+    
+        // Görseli indir
+        downloadButton.addEventListener('click', () => {
+            const link = document.createElement('a');
+            link.download = 'karbon_ayak_izi_sonuc.png';
+            link.href = canvas.toDataURL('image/png');
+            link.click();
+        });
+    </script>    
+</body>
+</html>
