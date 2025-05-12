@@ -59,7 +59,7 @@ function showResult() {
 
     let carbonFootprint = 0;
 
-    if (!isNaN(meatKg)) carbonFootprint += meatKg * 20; // 20 kg CO2/kg et
+    if (!isNaN(meatKg)) carbonFootprint += meatKg * 4; // 20 kg CO2/kg et
     if (recycle === 1) carbonFootprint -= 5; // Geri dönüşüm CO2 tasarrufu
     if (renewableEnergy === 1) carbonFootprint -= 10; // Yenilenebilir enerji kullanımı
     if (people) carbonFootprint += people * 2; // 2 kg CO2/kişi
