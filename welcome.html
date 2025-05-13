@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cezeri Sıfır İz</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body background="./assets/hesap;.png">
+    <header>
+        <nav>
+            <h1 style="font-size: 50px; margin: 0; padding: 0;">Cezeri Sıfır İz</h1>
+            <a style="font-size: xx-large;" href="index.html">Ana Sayfa</a>
+<a href="https://cezeri.meb.k12.tr/"> <img src="./assets/okul.png" style="width:150px;height: 150px; position: absolute; top: 2%; right: 90%;"></a>
+                <img src="./assets/sifiriz.png" alt="Sıfır İz" style="width:200px;height:200px; position:absolute; top:2%; left:88%;">
+    </header>
+    <main>
+        <section>
+            <h2 style="font-size: xx-large; position: relative; right: 45%; top: 45%; color: darkblue;">Karbon Ayak İzi</h2>
+            <h2 style="font-size: xx-large; position: relative; right: 50%; top: 50%; color: darkblue;">Hesaplama Sistemine </h2>
+            <h2 style="font-size: xx-large; position: relative; right: 42%; top: 55%; color: darkblue;">Hoşgeldiniz!</h2>
+            <p style="font-size: larger; color: darkblue;">Adınızı girerek başlayın (En fazla 13 karakter):</p>
+            <label style="font-size: x-large; position: relative; right: 70%; top: 60%; color: darkblue;" for="name">Adınız:</label>
+            <input style="font-size: xx-large; position: relative; right: 70%; top: 60%;" type="text" id="name" required maxlength="13">
+            <button style="position: relative; right: 60%; top: 55%; border-radius: 32px; padding: 1rem; font-size: x-large; color: darkblue;" id="startButton">Hesaplamaya Başla</button>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 Yeşil Bir Adım -- İletişim : https://cezeri.meb.k12.tr/ --  (312) 283 1061 --  </p>
+        <p>15-16 Mayıs 2025 11. Dönem 4006-TÜBİTAK Bilim Fuarı Projesi</p>
+        <p>"Karbon Ayak İzi Farkındalığı ile Bilinçli Tüketim, Yaşanabilir Dünya"</p>
+    </footer>
+    <script>
+        document.getElementById("startButton").addEventListener("click", function (event) {
+    const nameInput = document.getElementById("name").value;
+    if (!nameInput) {
+        alert("Lütfen adınızı girin.");
+        event.preventDefault(); // Geçişi engelle
+    } else {
+        // Kullanıcı adını sessionStorage'a kaydet
+        sessionStorage.setItem('userName', nameInput);
+        
+        // Hesaplama sayfasına geçiş yap
+        window.location.href = "hesapla.html";
+    }
+        });
+    </script>
+</body>
+</html>

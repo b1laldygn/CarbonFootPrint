@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cezeri Sıfır İz</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        .carbon-footprint {
+            display: flex;
+            font-size: xx-large;
+            justify-content: center;
+            margin: 20px 0;
+            align-items: flex-end; /* Dikey hizalamayı ayarla */
+        }
+        .digit {
+            border: 2px solid #000;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 0 5px;
+            width: 60px;
+            text-align: center;
+        }
+        .comma {
+            font-size: xx-large;
+            margin: 0 5px;
+            position: relative;
+            top: 10px; /* Virgülü biraz aşağıya kaydır */
+            color: transparent;
+        }
+    </style>
+</head>
+<body background="./assets/bgbaslangic.png">
+    <header>
+        <h1>Karbon Ayak İzi Sonuç</h1>
+        <nav>
+            <a href="https://cezeri.meb.k12.tr/">
+                <img src="./assets/okul.png" alt="Okul" style="width:150px;height:150px; position:absolute; top:2%; right:90%;">
+            </a>
+            <a href="https://b1laldygn.github.io/CarbonFootPrint/">
+                <img src="./assets/sifiriz.png" alt="Sıfır İz" style="width:150px;height:150px; position:absolute; top:2%; left:90%;">
+            </a>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <h2 style="font-size: xx-large;">Tebrikler!</h2>
+            <p style="font-size: xx-large;">Adınız: <strong id="userName">Bilinmiyor</strong></p>
+            <div class="carbon-footprint" id="carbonFootprint">
+                <span class="digit">0</span>
+                <span class="digit">0</span>
+                <span class="digit">0</span>
+                <span class="comma"></span>
+                <span class="digit">0</span>
+                <span class="digit">0</span>
+                <span class="digit">0</span>
+            </div>
+            <button id="downloadImage" class="button" style="font-size: xx-large; border-radius: 40px; ;">Sertifikayı Görüntüle</button>
+            <p style="font-size: x-large;">Ortalama bir insanın yıllık CO2 yaklaşık 4,7 tondur.</p>
+            <p style="font-size: x-large;">Yaşanabilir bir gelecek için bireylerin/kurumların karbon ayak izi hesaplama sonuçlarını, %50 oranında azaltması gerekmektedir.</p>
+        </section>
+        <canvas id="resultCanvas" width="1200" height="630" style="display:none;"></canvas>
+    </main>
+    <footer>
+        <p>&copy; 2025 Cezeri Sıfır İz</p>
+        <p>İletişim: <a href="https://cezeri.meb.k12.tr/" style="color: #80ffd4;" target="_blank">cezeri.meb.k12.tr</a> | Tel: (312) 283 1061</p>
+        <p><em>15-16 Mayıs 2025, 11. Dönem 4006-TÜBİTAK Bilim Fuarı Projesi</em></p>
+        <p>"Karbon Ayak İzi Farkındalığı ile Bilinçli Tüketim, Yaşanabilir Dünya"</p>
+    </footer>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const downloadButton = document.getElementById('downloadImage');
+            const userName = sessionStorage.getItem('userName') || 'Bilinmiyor';
+            const carbonFootprint = sessionStorage.getItem('carbonFootprint') || '0';
+
+            document.getElementById('userName').textContent = userName;
+
+            // Karbon ayak izini rakamlarla böl ve 6 haneli yap
+            const paddedCarbonFootprint = carbonFootprint.padStart(6, '0');
+            const carbonDigits = paddedCarbonFootprint.split('');
+            const footprintContainer = document.getElementById('carbonFootprint');
+
+            footprintContainer.innerHTML = ''; // Önceki içeriği temizle
+
+            carbonDigits.forEach((digit, index) => {
+                const span = document.createElement('span');
+                span.className = 'digit';
+                span.textContent = digit;
+                footprintContainer.appendChild(span);
+                
+                // 1000'ler basamağından sonra virgül ekle
+                if (index === 2) {
+                    const commaSpan = document.createElement('span');
+                    commaSpan.className = 'comma';
+                    commaSpan.textContent = ',';
+                    footprintContainer.appendChild(commaSpan);
+                }
+            });
+
+            downloadButton.addEventListener('click', () => {
+                sessionStorage.setItem('userName', userName);
+                sessionStorage.setItem('carbonFootprint', carbonFootprint);
+                window.location.href = 'sertifika.html';
+            });
+        });
+    </script>
+</body>
+</html>

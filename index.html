@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cezeri Sıfır İz</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+    </style>
+</head>
+<body background="./assets/bgstart.png">
+    <header>
+        <h1 style="font-size: 50px;">Cezeri Sıfır İz</h1>
+        <nav>
+            <a style="font-size: xx-large;" href="index.html">Ana Sayfa</a>
+            <a href="welcome.html" style="font-size: xx-large;">Karbon Ayak İzi Hesapla</a>
+            <a href="https://cezeri.meb.k12.tr/"> <img src="./assets/okul.png" style="width:150px;height: 150px; position: absolute; top: 2%; right: 90%;"></a>
+                <img src="./assets/sifiriz.png" alt="Sıfır İz" style="width:200px;height:200px; position:absolute; top:2%; left:88%;">
+        </nav>  
+    </header>
+    <main>
+        <section>
+            <h2 style="position: relative; right: 60%; top: 45%; font-size: xx-large;">Doğayı Koru, Geleceği Koru</h2>
+            <p style="position: relative; right: 60%; top: 50%; font-size: 22px;">Karbon ayak izinizi öğrenerek daha sürdürülebilir bir yaşam için ilk adımı atın.</p>
+            <!--<a style="position: fixed; right: 60%; top: 55%;" href="welcome.html" class="button">Hemen Hesapla</a>-->
+            <button style="position: relative; right: 60%; top: 55%; border-radius: 64px; padding: 1.5rem; font-size: x-large;" id="firstButton"> Hemen Hesapla </button>
+        </section>
+    </main>
+    <footer>
+        <p><strong>&copy; 2025 Cezeri Sıfır İz</strong></p>
+  <p>İletişim: <a href="https://cezeri.meb.k12.tr/" style="color: #80ffd4;" target="_blank">cezeri.meb.k12.tr</a> | Tel: (312) 283 1061</p>
+  <p><em>15-16 Mayıs 2025, 11. Dönem 4006-TÜBİTAK Bilim Fuarı Projesi</em></p>
+  <p>"Karbon Ayak İzi Farkındalığı ile Bilinçli Tüketim, Yaşanabilir Dünya"</p>
+    </footer>
+    <script>
+                document.getElementById("firstButton").addEventListener("click", function (event){
+                    window.location.href = "welcome.html";
+                });
+    </script>
+</body>
+</html>

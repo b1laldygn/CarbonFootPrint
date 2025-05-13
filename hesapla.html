@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cezeri Sıfır İz</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        .step {
+        background-size: cover;
+        background-position: center;
+        padding: 1rem;
+        border-radius: 10px;
+        margin-bottom: 1rem;
+        }
+        .step-1, .step-2, .step-3, .step-4, .step-5, .step-6, .step-7, .step-8, .step-9 {
+    background-image: none !important;
+}
+        .option {
+            cursor: pointer;
+            padding: 0.5rem;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            margin: 0.5rem 0;
+            text-align: center;
+            transition: background-color 0.3s ease;
+        }
+        .option:hover {
+            background-color: #e0e0e0;
+        }
+        .selected {
+            background-color: #2ecc71;
+            color: white;
+        }
+
+        .question-container {
+            display: flex;
+            flex-direction: row; /* Display side by side */
+            align-items: center; /* Vertically align items */
+            justify-content: space-between; /* Add space between label and image */
+        }
+
+        .question-container label {
+            flex: 2; /* Take up 2/3 of the space */
+            margin-right: 1rem; /* Add some spacing between label and image */
+        }
+
+        .question-container img {
+            flex: 1; /* Take up 1/3 of the space */
+            max-width: 100%; /* Ensure image doesn't exceed its container */
+            height: auto; /* Maintain aspect ratio */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Karbon Ayak İzi Hesaplama</h1>
+        <nav>
+            <a style="font-size: xx-large;" href="index.html">Ana Sayfa</a>
+        </nav>
+<a href="https://cezeri.meb.k12.tr/"> <img src="./assets/okul.png" style="width:150px;height: 150px; position: absolute; top: 2%; right: 90%;"></a>
+                <img src="./assets/sifiriz.png" alt="Sıfır İz" style="width:200px;height:200px; position:absolute; top:2%; left:88%;">
+        </header>
+    <main>
+        <form id="multiStepForm">
+            <div class="form-container">
+                <div class="step step-1">
+                    <label style="font-size: xx-large;" >1. Haftada ne sıklıkla et tüketiyorsunuz?(Porsiyon başı 250 gram alınmaktadır) </label>
+                    <div class="option" data-value="0" style="font-size: xx-large;">A. Hiç</div>
+                    <div class="option" data-value="1" style="font-size: xx-large;">B. 1 kez</div>
+                    <div class="option" data-value="2" style="font-size: xx-large;">C. 2 kez</div>
+                    <div class="option" data-value="3" style="font-size: xx-large;">D. 3 kez ve daha fazla</div>
+                    <div class="navigation">
+<button type="button" class="prevBtn" style="font-size: xx-large;">Geri</button>
+<button type="button" class="nextBtn" style="font-size: xx-large;">İleri</button>
+    </div>
+                </div>
+                <div class="step step-2">
+                    <label style="font-size: xx-large;" >2. Geri dönüşüm yapıyor musunuz?</label>
+                    <div class="option" data-value="1" style="font-size: xx-large;">A. Evet</div>
+                    <div class="option" data-value="0" style="font-size: xx-large;">B. Hayır</div>
+                    <div class="navigation">
+<button type="button" class="prevBtn" style="font-size: xx-large;">Geri</button>
+<button type="button" class="nextBtn" style="font-size: xx-large;">İleri</button>
+    </div>
+                </div>
+                <div class="step step-3">
+                    <label style="font-size: xx-large;" >3. Enerji üretiminde yenilenebilir enerji teknolojilerini kullanıyor musunuz?</label>
+                    <div class="option" data-value="1" style="font-size: xx-large;">A. Evet</div>
+                    <div class="option" data-value="0" style="font-size: xx-large;">B. Hayır</div>
+                    <div class="navigation">
+<button type="button" class="prevBtn" style="font-size: xx-large;">Geri</button>
+<button type="button" class="nextBtn" style="font-size: xx-large;">İleri</button>
+    </div>
+                </div>
+                <div class="step step-4">
+                    <label style="font-size: xx-large;" >4. Günlük ulaşımda hangi araçları tercih ediyorsunuz?</label>
+                    <div class="option" data-value="0" style="font-size: xx-large;">Bisiklet</div>
+                    <div class="option" data-value="1" style="font-size: xx-large;">Toplu taşıma</div>
+                    <div class="option" data-value="2" style="font-size: xx-large;">Kişisel araç</div>
+                    <div class="navigation">
+<button type="button" class="prevBtn" style="font-size: xx-large;">Geri</button>
+<button type="button" class="nextBtn" style="font-size: xx-large;">İleri</button>
+    </div>
+                </div>
+                <div class="step step-5">
+                    <div class="question-container">
+                        <label style="font-size: xx-large;" >5. Günlük beslenme alışkanlığınız nasıldır?</label>
+                    </div>
+                    <div class="option" data-value="0" style="font-size: xx-large;">A. Doğal gıda (Ev yemeği)</div>
+                    <div class="option" data-value="1" style="font-size: xx-large;">B. Paketlenmiş (Hazır gıda)</div>
+                    <div class="option" data-value="2" style="font-size: xx-large;">C. Fast Food</div>
+                    <div class="navigation">
+<button type="button" class="prevBtn" style="font-size: xx-large;">Geri</button>
+<button type="button" class="nextBtn" style="font-size: xx-large;">İleri</button>
+    </div>
+                </div>
+                <div class="step step-6">
+                    <div class="question-container">
+                        <label style="font-size: xx-large;" >6. Su tüketimini nasıl sağlarsınız?</label>
+                    </div>
+                    <div class="option" data-value="0" style="font-size: xx-large;">A. Kendi mataramı/suluk kullanırım</div>
+                    <div class="option" data-value="1" style="font-size: xx-large;">B. Tek kullanımlık şişe kullanırım</div>
+                    <div class="navigation">
+<button type="button" class="prevBtn" style="font-size: xx-large;">Geri</button>
+<button type="button" class="nextBtn" style="font-size: xx-large;">İleri</button>
+    </div>
+                </div>
+                <div class="step step-7">
+                    <label style="font-size: xx-large;" >7. Odadan çıktığında ışıklarını kapatır mısın? (Evet=1, Hayır=0)</label>
+                    <div class="option" data-value="1" style="font-size: xx-large;">A. Evet</div>
+                    <div class="option" data-value="0" style="font-size: xx-large;">B. Hayır</div>
+                    <div class="navigation">
+<button type="button" class="prevBtn" style="font-size: xx-large;">Geri</button>
+<button type="button" class="nextBtn" style="font-size: xx-large;">İleri</button>
+    </div>
+                </div>
+                <div class="step step-8">
+                    <div class="question-container">
+                        <label style="font-size: xx-large;" >8. Ağaç dikme etkinliklerine katılır mısın?</label>
+                    </div>
+                    <div class="option" data-value="1" style="font-size: xx-large;">A. Evet</div>
+                    <div class="option" data-value="0" style="font-size: xx-large;">B. Hayır</div>
+                    <div class="navigation">
+<button type="button" class="prevBtn" style="font-size: xx-large;">Geri</button>
+<button type="button" class="nextBtn" style="font-size: xx-large;">İleri</button>
+    </div>
+                </div>
+                <div class="step step-9">
+                    <div class="question-container">
+                         <label style="font-size: xx-large;" >9. Ayda kaç kargo alırsınız?</label>
+                    </div>
+                    <div class="option" data-value="0" style="font-size: xx-large;">A. Hiç</div>
+                    <div class="option" data-value="1" style="font-size: xx-large;">B. 1-2 kez</div>
+                    <div class="option" data-value="2" style="font-size: xx-large;">C. 3-4 kez</div>
+                    <div class="option" data-value="3" style="font-size: xx-large;">D. 5 ve üzeri</div>
+                    <div class="navigation">
+<button type="button" class="prevBtn" style="font-size: xx-large;">Geri</button>
+<button type="button" class="nextBtn" style="font-size: xx-large;">İleri</button>
+    </div>
+                </div>
+            </div>
+        </form>
+        <div id="result"></div>
+    </main>
+    <footer>
+        <p><strong>&copy; 2025 Cezeri Sıfır İz</strong></p>
+  <p>İletişim: <a href="https://cezeri.meb.k12.tr/" style="color: #80ffd4;" target="_blank">cezeri.meb.k12.tr</a> | Tel: (312) 283 1061</p>
+  <p><em>15-16 Mayıs 2025, 11. Dönem 4006-TÜBİTAK Bilim Fuarı Projesi</em></p>
+  <p>"Karbon Ayak İzi Farkındalığı ile Bilinçli Tüketim, Yaşanabilir Dünya"</p>
+    </footer>
+    <script src="scripts.js"></script>
+    <script>
+        
+
+    // ENTER tuşuyla geçiş
+    document.getElementById('multiStepForm').addEventListener('keypress', function(event) {
+        if (event.key === 'Enter') {
+            event.preventDefault(); // Formun varsayılan davranışını engelle
+            if (event.target.classList.contains('option')) {
+                nextStep();
+            } else {
+                const selectedOption = document.querySelector('.step.active .selected');
+                if (selectedOption) {
+                    nextStep();
+                }
+            }
+        }
+    });
+    </script>
+</body>
+</html>
