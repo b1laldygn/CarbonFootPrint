@@ -68,41 +68,49 @@
             <p>"Karbon Ayak İzi Farkındalığı ile Bilinçli Tüketim, Yaşanabilir Dünya"</p>
         </footer>
         <script>
-            document.addEventListener("DOMContentLoaded", () => {
-                const downloadButton = document.getElementById('downloadImage');
-                const userName = sessionStorage.getItem('userName') || 'Bilinmiyor';
-                const carbonFootprint = sessionStorage.getItem('carbonFootprint') || '0';
+    document.addEventListener("DOMContentLoaded", () => {
+        const downloadButton = document.getElementById('downloadImage');
+        const userName = sessionStorage.getItem('userName') || 'Bilinmiyor';
+        // Mevcut karbon ayak izini al, sayıya dönüştür, 3000 ekle.
+        // Eğer sayı yoksa 0 alıp 3000 ekler, sonuç 3000 olur.
+        const originalFootprint = parseInt(sessionStorage.getItem('carbonFootprint')) || 0;
+        const newCarbonFootprint = (originalFootprint + 3000).toString(); // 3000 ekle ve tekrar string yap
 
-                document.getElementById('userName').textContent = userName;
+        document.getElementById('userName').textContent = userName;
 
-                // Karbon ayak izini rakamlarla böl ve 6 haneli yap
-                const paddedCarbonFootprint = carbonFootprint.padStart(6, '0');
-                const carbonDigits = paddedCarbonFootprint.split('');
-                const footprintContainer = document.getElementById('carbonFootprint');
+        // Karbon ayak izini rakamlarla böl ve 6 haneli yap
+        // Şimdi yeni (3000 eklenmiş) değeri kullanıyoruz.
+        const paddedCarbonFootprint = newCarbonFootprint.padStart(6, '0');
+        const carbonDigits = paddedCarbonFootprint.split('');
+        const footprintContainer = document.getElementById('carbonFootprint');
 
-                footprintContainer.innerHTML = ''; // Önceki içeriği temizle
+        footprintContainer.innerHTML = ''; // Önceki içeriği temizle
 
-                carbonDigits.forEach((digit, index) => {
-                    const span = document.createElement('span');
-                    span.className = 'digit';
-                    span.textContent = digit;
-                    footprintContainer.appendChild(span);
-                    
-                    // 1000'ler basamağından sonra virgül ekle
-                    if (index === 2) {
-                        const commaSpan = document.createElement('span');
-                        commaSpan.className = 'comma';
-                        commaSpan.textContent = ',';
-                        footprintContainer.appendChild(commaSpan);
-                    }
-                });
+        carbonDigits.forEach((digit, index) => {
+            const span = document.createElement('span');
+            span.className = 'digit';
+            span.textContent = digit;
+            footprintContainer.appendChild(span);
+            
+            // 1000'ler basamağından sonra virgül ekle
+            if (index === 2) {
+                const commaSpan = document.createElement('span');
+                commaSpan.className = 'comma';
+                commaSpan.textContent = ',';
+                footprintContainer.appendChild(commaSpan);
+            }
+        });
 
-                downloadButton.addEventListener('click', () => {
-                    sessionStorage.setItem('userName', userName);
-                    sessionStorage.setItem('carbonFootprint+3000', carbonFootprint);
-                    window.location.href = 'sertifika.html';
-                });
-            });
-        </script>
+        downloadButton.addEventListener('click', () => {
+            sessionStorage.setItem('userName', userName);
+            // 'carbonFootprint+3000' adında yeni bir anahtar kullanmak yerine, 
+            // sertifika sayfasına doğru değeri göndermek için orijinal anahtarı veya 
+            // sadece yeni hesaplanan değeri göndermelisiniz.
+            // Örnek olarak, sertifika sayfasının kullanması için yeni bir anahtara kaydedelim.
+            sessionStorage.setItem('carbonFootprintResult', newCarbonFootprint); 
+            window.location.href = 'sertifika.html';
+        });
+    });
+</script>
     </body>
     </html>
